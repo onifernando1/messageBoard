@@ -25,7 +25,11 @@ router.get('/new', function(req,res,next){
 
 
 router.post('/new', function(req,res,next){
+  const messageText = req.body.text
+  const messageUser = req.body.user
+  messages.push({text: messageText, user: messageUser, added: new Date()});
 
+  res.redirect('/') 
 })
 
 module.exports = router;
